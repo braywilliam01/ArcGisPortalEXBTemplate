@@ -10,33 +10,11 @@ outside this project.
 
 --------------------------------------------------------------------------------
 
-PROJECT STRUCTURE
------------------
-
-exb_templates/
-|
-|-- manifest.json                  # Template registry and audit trail
-|
-|-- exb_template_factory.ipynb     # ArcGIS Pro Notebook (main interface)
-|
-|-- templates/                     # Local copies of pulled configs
-|   |-- template_public_facing/
-|   |   └-- config.json
-|   |-- template_internal_ops/
-|   |   └-- config.json
-|   └-- (additional templates...)
-|
-└-- review_workspace/
-    └-- working_config.json        # Active file handed to AI agent for review
-
---------------------------------------------------------------------------------
-
 PREREQUISITES
 -------------
 - ArcGIS Pro with active Portal connection to Staging environment
 - Python environment via ArcGIS Pro (arcgis package included)
 - Access to the Portal items you intend to manage
-- Git (optional but recommended for version control of config files)
 
 --------------------------------------------------------------------------------
 
