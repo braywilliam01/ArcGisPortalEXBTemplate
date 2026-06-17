@@ -1,0 +1,27 @@
+def push_config(template_name: str):
+    manifest = load_manifest()
+    item_id = manifest["templates"][template_name]["staging_item_id"]
+
+    if not item_id:
+        print(f"No item ID found for '{template_name}'. Run pull_config first.")
+        return
+
+    item = gis.content.get(item_id)
+
+    config_path = os.path.join(TEMPLATES_DIR, template_name, "config.json")
+    with open(config_path) as f:
+        config_data = json.load(f)
+
+    result = item.update(data=json.dumps(config_data))
+
+    if result:
+        manifest["templates"][template_name]["last_pushed_staging"] = (
+            datetime.now(timezone.utc).isoformat()
+        )
+        save_manifest(manifest)
+        print(f"Pushed '{template_name}' [{item_id}] to staging successfully")
+    else:
+        print("Push failed — Portal rejected the update")
+
+# Usage:
+# push_config("template_public_facing")
