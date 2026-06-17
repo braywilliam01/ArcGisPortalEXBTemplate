@@ -1,0 +1,18 @@
+{
+  "templates": {
+    "template_public_facing": {
+      "staging_item_id": null,
+      "portal_group": "EXB Templates - Public",
+      "last_pulled": null,
+      "last_pushed_staging": null,
+      "notes": "WCAG AA compliant base template"
+    },
+    "template_internal_ops": {
+      "staging_item_id": null,
+      "portal_group": "EXB Templates - Internal",
+      "last_pulled": null,
+      "last_pushed_staging": null,
+      "notes": ""
+    }
+  }
+}
