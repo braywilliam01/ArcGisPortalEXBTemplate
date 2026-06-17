@@ -1,0 +1,19 @@
+def add_template(template_name: str, portal_group: str, notes: str = ""):
+    manifest = load_manifest()
+
+    if template_name in manifest["templates"]:
+        print(f"'{template_name}' already exists in manifest.")
+        return
+
+    manifest["templates"][template_name] = {
+        "staging_item_id": None,
+        "portal_group": portal_group,
+        "last_pulled": None,
+        "last_pushed_staging": None,
+        "notes": notes
+    }
+    save_manifest(manifest)
+    print(f"Added '{template_name}' to manifest under group '{portal_group}'")
+
+# Usage:
+# add_template("template_field_ops", "EXB Templates - Field", "Field operations template")
