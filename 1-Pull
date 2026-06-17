@@ -1,0 +1,26 @@
+def pull_config(template_name: str, item_id: str):
+    manifest = load_manifest()
+    item = gis.content.get(item_id)
+    config = item.get_data()
+
+    out_dir = os.path.join(TEMPLATES_DIR, template_name)
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "config.json"), "w") as f:
+        json.dump(config, f, indent=2)
+
+    os.makedirs(REVIEW_DIR, exist_ok=True)
+    with open(os.path.join(REVIEW_DIR, "working_config.json"), "w") as f:
+        json.dump(config, f, indent=2)
+
+    # Store item ID in manifest on first pull
+    manifest["templates"][template_name]["staging_item_id"] = item_id
+    manifest["templates"][template_name]["last_pulled"] = (
+        datetime.now(timezone.utc).isoformat()
+    )
+    save_manifest(manifest)
+
+    print(f"Pulled '{template_name}' [{item_id}] → {item.title}")
+    return config
+
+# Usage:
+# pull_config("template_public_facing", "abc123def456")

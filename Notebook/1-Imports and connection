@@ -1,0 +1,19 @@
+import json, os
+from arcgis.gis import GIS
+from datetime import datetime, timezone
+
+gis = GIS("pro")
+print(f"Connected to: {gis.properties.portalHostname}")
+print(f"Logged in as: {gis.users.me.username}")
+
+MANIFEST_PATH = r"C:\your\arcpro\project\exb_templates\manifest.json"
+TEMPLATES_DIR = r"C:\your\arcpro\project\exb_templates\templates"
+REVIEW_DIR    = r"C:\your\arcpro\project\exb_templates\review_workspace"
+
+def load_manifest():
+    with open(MANIFEST_PATH) as f:
+        return json.load(f)
+
+def save_manifest(manifest):
+    with open(MANIFEST_PATH, "w") as f:
+        json.dump(manifest, f, indent=2)

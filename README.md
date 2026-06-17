@@ -1,7 +1,6 @@
-================================================================================
 EXB Template 
 ArcGIS Experience Builder Template Management Workflow
-================================================================================
+
 
 OVERVIEW
 --------
@@ -196,26 +195,6 @@ following prompt structure to keep output focused and safe:
 
 Review each flagged item individually. Apply approved changes manually.
 Do not use AI-generated output to overwrite files directly.
-
---------------------------------------------------------------------------------
-
-GIT USAGE
----------
-This project is version controlled. Recommended commit points:
-
-    - After each pull (new baseline captured)
-    - After each manual edit cycle (changes applied, not yet pushed)
-    - After each successful push to Staging (verified state)
-
-Suggested .gitignore entries:
-
-    review_workspace/working_config.json
-    __pycache__/
-    *.pyc
-
-The review_workspace file is intentionally excluded from Git as it is
-a temporary working copy. The templates/ folder is the source of record
-and should be committed.
 
 --------------------------------------------------------------------------------
 

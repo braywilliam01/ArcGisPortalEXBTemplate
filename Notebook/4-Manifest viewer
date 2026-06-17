@@ -1,0 +1,12 @@
+def show_manifest():
+    manifest = load_manifest()
+    for name, t in manifest["templates"].items():
+        print(f"\n{'='*40}")
+        print(f"Template:    {name}")
+        print(f"Group:       {t['portal_group']}")
+        print(f"Staging ID:  {t.get('staging_item_id') or 'Not yet pulled'}")
+        print(f"Last Pulled: {t.get('last_pulled') or 'Never'}")
+        print(f"Last Pushed: {t.get('last_pushed_staging') or 'Never'}")
+        print(f"Notes:       {t['notes']}")
+
+show_manifest()
