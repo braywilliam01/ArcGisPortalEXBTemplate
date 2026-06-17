@@ -1,7 +1,3 @@
-EXB Template 
-ArcGIS Experience Builder Template Management Workflow
-
-
 OVERVIEW
 --------
 This project provides a structured workflow for managing ArcGIS Experience
